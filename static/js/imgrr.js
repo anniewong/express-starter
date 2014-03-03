@@ -73,3 +73,8 @@ $('.clickable').click(function() {
 
 // Problem 5 (Imgrr) -------------------------------------------------
 // WRITE CODE HERE
+
+$('.clickable1').click(function() {
+	var animals = ($(this).attr('src'));
+	$('#clickablemain').attr('src',animals);
+});
