@@ -40,5 +40,45 @@ $('#p5').click(function(){
   context.stroke();
   });
 
+$('#p6').click(function(){
+  context.strokeStyle = 'green';
+  context.strokeRect(80,80,20,40)
 });
+
+$('#p7').click(function(){
+  context.beginPath();
+  context.arc(300,200,150,3,5*Math.PI);
+  context.fillStyle = 'red';
+  context.fill();
+  context.closePath();
+});
+
+$('#p8').click(function(){
+  context.strokeStyle = 'blue';
+  context.strokeRect(40,40,85,85);
+  context.fillStyle = 'yellow';
+  context.fillRect(40,40,85,85);
+ 
+
+  });
+
+$('#p9').click(function(){
+  for (var i = 100; i<=100; i+=50)
+    context.strokeRect(i,100,50,50);
+    
+
+  });
+
+$('#p10').click(function(){
+  for (var i = 0; i<500; i+=5)
+    context.strokeRect(i,0,5,5);
+  
+  });
+
+ });  
+  
+
+ 
+
+
  
