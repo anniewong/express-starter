@@ -7,7 +7,8 @@ $(document).ready(function() {
 
   //PUT STUFF HERE
 var ball = {x:20,y:20,radius:20,vx:5,vy:5};
-  //run an iteration of the game
+  //run an iteration of the 
+
   var updateGame = function() {
     //PUT STUFF HERE
       context.beginPath();
@@ -25,20 +26,21 @@ var ball = {x:20,y:20,radius:20,vx:5,vy:5};
   context.closePath();
 
   
-  if((1/2)*ball.radius+ball.x==0){
-        ball.vx = -ball.vx;
-
-  }
-  if(ball.x+ball.radius==width) {
+   //right
+  if(ball.x+ball.radius>width) {
     ball.vx = -ball.vx;
   } 
-  if(ball.y+ball.radius==height){
-       ball.vy = -ball.vy;
-
-  }
-  if((1/2)*ball.radius+ball.y==0) {
-    ball.vy = -ball.vy;
+  if(ball.x-ball.radius<0) {
+      ball.vx = -ball.vx;
   } 
+  //bottom
+  if (ball.y+ball.radius>height){
+       ball.vy = -ball.vy;
+  } 
+  if(ball.y-ball.radius<0) {
+      ball.vy= -ball.vy;
+  }
+
 
   ball.x=ball.x+ball.vx;
   ball.y=ball.y+ball.vy;
