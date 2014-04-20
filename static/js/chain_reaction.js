@@ -6,6 +6,7 @@ $(document).ready(function() {
   var height = canvas.height;
 
   // PUT STUFF HERE
+  var reactions = [];
   var numBalls=9;
   var balls = [];
 
@@ -15,7 +16,7 @@ $(document).ready(function() {
   }
   // Run an interation of the game
   var updateGame = function() {
-      context.beginPath();
+  context.beginPath();
   context.rect(0,0,width,height);  
   context.fillStyle='red';
   context.fill();
@@ -53,17 +54,23 @@ $(document).ready(function() {
       context.closePath();
 
     } 
+  for (i=0;i<reactions.length;i++) {
+    balls.push(reactions[i]);
+  }
   requestAnimationFrame(updateGame); 
   };
-
+  for (i=0;i<numBalls;i++) {
+    var b0 = {x:width*Math.random(),y:height*Math.random(),radius:10,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+    balls.push(b0);
+  }
   // Handle a canvas click event
   $('#game_canvas').click(function(e) {
     // Find the mouse x and y relative to the top-left corner of the canvas
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
     // PUT STUFF HERE
-    var merp = {x:x,y:y,radius:10,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
-    balls.push(merp);
+    var b = {x:x,y:y,radius:30,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+    reactions.push(b);
 
   });
 
