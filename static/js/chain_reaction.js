@@ -30,7 +30,7 @@ $(document).ready(function() {
 
         }
         if(collided) {
-          var b = {x:balls[i].x,y:balls[i].y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+          var b = {x:balls[i].x,y:balls[i].y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5, timer:0};
           reactions.push(b);
           balls.splice(i,1);
           i--;
@@ -86,8 +86,16 @@ $(document).ready(function() {
   }
   requestAnimationFrame(updateGame); 
   for (var i = 0;i<reactions.length;i++) {
-    if(reactions[i].radius<30) {
+    reactions[i].timer++;
+    if(reactions[i].timer >200) {
+      reactions[i].radius--;
+
+    } else if(reactions[i].radius<30) {
       reactions[i].radius++;
+    } 
+    if(reactions[i].radius==0) {
+      reactions.splice(i,1);
+      i--;
     }
   }
   };
@@ -101,7 +109,7 @@ $(document).ready(function() {
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
     // PUT STUFF HERE
-    var b = {x:x,y:y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+    var b = {x:x,y:y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5,timer:0};
     reactions.push(b);
 
   });
