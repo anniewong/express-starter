@@ -54,12 +54,18 @@ $(document).ready(function() {
       context.closePath();
 
     } 
-  for (i=0;i<reactions.length;i++) {
-    balls.push(reactions[i]);
+  for (var i=0;i<reactions.length;i++) {
+    context.beginPath();
+
+      context.arc(reactions[i].x,reactions[i].y,reactions[i].radius,20,20*Math.PI);
+      context.fillStyle = 'black';
+      context.fill();
+      context.closePath();
+
   }
   requestAnimationFrame(updateGame); 
   };
-  for (i=0;i<numBalls;i++) {
+  for (var i=0;i<numBalls;i++) {
     var b0 = {x:width*Math.random(),y:height*Math.random(),radius:10,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
     balls.push(b0);
   }
