@@ -30,6 +30,8 @@ $(document).ready(function() {
 
         }
         if(collided) {
+          var b = {x:balls[i].x,y:balls[i].y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+          reactions.push(b);
           balls.splice(i,1);
           i--;
         }
