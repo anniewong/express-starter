@@ -64,6 +64,11 @@ $(document).ready(function() {
 
   }
   requestAnimationFrame(updateGame); 
+  for (var i = 0;i<reactions.length;i++) {
+    if(reactions[i].radius<30) {
+      reactions[i].radius++;
+    }
+  }
   };
   for (var i=0;i<numBalls;i++) {
     var b0 = {x:width*Math.random(),y:height*Math.random(),radius:10,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
@@ -75,7 +80,7 @@ $(document).ready(function() {
     var x = e.pageX - $(this).offset().left;
     var y = e.pageY - $(this).offset().top;
     // PUT STUFF HERE
-    var b = {x:x,y:y,radius:30,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
+    var b = {x:x,y:y,radius:1,vx:Math.random()*(10)-5,vy:Math.random()*(10)-5};
     reactions.push(b);
 
   });
