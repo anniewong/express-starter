@@ -53,6 +53,10 @@ app.get('/ball', function(req, res) {
 app.get('/chain-reaction', function(req, res) {
   res.render('chain_reaction.html', { });
 });
+
+app.get('/facts', function(req, res) {
+  res.render('facts.html', {your_name: "Bob Saget" });
+});
 ///////////////////////////////////////////////////////////////////////////////
 // RUN CONFIGURATION                                                         //
 ///////////////////////////////////////////////////////////////////////////////
